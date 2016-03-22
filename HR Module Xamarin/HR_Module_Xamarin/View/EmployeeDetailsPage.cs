@@ -18,7 +18,7 @@ namespace HR_Module_Xamarin
         {
             Title = "Employee Details Page";
 
-
+              
 
             this.item = item;
             Label name = new Label
