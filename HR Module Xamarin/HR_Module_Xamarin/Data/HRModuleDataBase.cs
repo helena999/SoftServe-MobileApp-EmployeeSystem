@@ -107,11 +107,28 @@ namespace HR_Module_Xamarin.Data
             }
         }
 
+        public void SaveProjectWithRelation(Project item)
+        {
+            lock (locker)
+            {
+                database.InsertWithChildren(item);
+            }
+        }
+
         public IEnumerable<Project> GetProject()
         {
             lock (locker)
             {
                 return (from i in database.Table<Project>() select i).ToList();
+            }
+        }
+
+
+        public IEnumerable<Project> GetProjectsWithRelatons()
+        {
+            lock (locker)
+            {
+                return database.GetAllWithChildren<Project>();
             }
         }
 
