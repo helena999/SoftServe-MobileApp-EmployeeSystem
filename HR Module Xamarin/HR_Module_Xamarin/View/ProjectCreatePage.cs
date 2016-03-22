@@ -20,14 +20,14 @@ namespace HR_Module_Xamarin.View
 
             var name = new Entry { Placeholder = "Name", FontSize = 25 };
             name.SetBinding(Entry.TextProperty, "Name");
-            var projectManager = new Entry { Placeholder = "ProjectManager", Keyboard = Keyboard.Chat, FontSize = 25 };
+            var projectManager = new Entry { Placeholder = "Project Manager", Keyboard = Keyboard.Chat, FontSize = 25 };
             projectManager.SetBinding(Entry.TextProperty, "PM");
 
 
             var saveButton = new Button { Text = "Save" };
             saveButton.Clicked += (sender, e) => {
                 var save = (Project)BindingContext;
-                App.Database.SaveProjectWithRelation(save);
+                App.Database.SaveProject(save);
                 Navigation.PopAsync();
             };
 

@@ -132,13 +132,13 @@ namespace HR_Module_Xamarin.Data
             }
         }
 
-        public Project GetProjectWithRelatons(int id)
-        {
-            lock (locker)
-            {
-                return database.GetWithChildren<Project>(id);
-            }
-        }
+        //public Project GetProjectWithRelatons(int id)
+        //{
+        //    lock (locker)
+        //    {
+        //        return database.GetWithChildren<Project>(id);
+        //    }
+        //}
 
 
         public Project GetProject(int id)
