@@ -45,22 +45,10 @@ namespace HR_Module_Xamarin
                 Text = item.ProjectManager.Name,
                 FontSize = 30
             };
-            Label teamLead = new Label
-            {
-                Text = "Team Leader",
-                TextColor = Color.Green,
-                FontSize = 15
-
-            };
-            Label temLeadLabel = new Label
-            {
-                Text = item.TeamLeader.Name,
-                FontSize = 30
-            };
             
             var stackLayout = new StackLayout
             {
-                Children = { name, nameLabel, projectManager, projectManagerLabel, teamLead, temLeadLabel }
+                Children = { name, nameLabel, projectManager, projectManagerLabel }
             };
 
             this.Content = stackLayout;

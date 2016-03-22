@@ -22,16 +22,7 @@ namespace HR_Module_Xamarin.View
             name.SetBinding(Entry.TextProperty, "Name");
             var projectManager = new Entry { Placeholder = "ProjectManager", Keyboard = Keyboard.Chat, FontSize = 25 };
             projectManager.SetBinding(Entry.TextProperty, "PM");
-            var teamLeader = new Entry { Placeholder = "TeamLeader", Keyboard = Keyboard.Chat, FontSize = 25 };
-            teamLeader.SetBinding(Entry.TextProperty, "TL");
 
-            //List<string> itemsSource = new List<string> { "Unknow", "Trainee", "Junior", "intermediate", "Senior", "Team Leader", "Project Manager", "Delivery Director", "CEO" };
-            //BindablePicker bindablePicker = new BindablePicker { Title = "Choose Position" };
-            //bindablePicker.ItemsSource = itemsSource;
-            //bindablePicker.SelectedIndexChanged += (object sender, EventArgs e) => {
-            //    var picker = sender as BindablePicker;
-            //    position.Text = picker.SelectedIndex.ToString();
-            //};
 
             var saveButton = new Button { Text = "Save" };
             saveButton.Clicked += (sender, e) => {
@@ -42,7 +33,7 @@ namespace HR_Module_Xamarin.View
 
             StackLayout stacklayout = new StackLayout
             {
-                Children = { name, projectManager, teamLeader, saveButton/*, bindablePicker*/}
+                Children = { name, projectManager, saveButton/*, bindablePicker*/}
             };
 
             Content = stacklayout;

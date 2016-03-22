@@ -21,14 +21,8 @@ namespace HR_Module_Xamarin.Model
         [ForeignKey(typeof(Employee))]
         public int PM { get; set; }
 
-        [ForeignKey(typeof(Employee))]
-        public int TL { get; set; }
-
-        [OneToOne]
+        [ManyToOne]
         public Employee ProjectManager { get; set; }
-
-        [OneToOne]
-        public Employee TeamLeader { get; set; }
 
         [OneToMany]
         public List<Employee> Employees { get; set; }
