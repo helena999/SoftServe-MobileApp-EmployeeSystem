@@ -111,7 +111,7 @@ namespace HR_Module_Xamarin.Data
         {
             lock (locker)
             {
-                database.InsertWithChildren(item);
+                database.Insert(item);
             }
         }
 
