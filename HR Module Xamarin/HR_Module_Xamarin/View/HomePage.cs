@@ -50,6 +50,7 @@ namespace HR_Module_Xamarin.View
                 Font = Font.SystemFontOfSize(NamedSize.Large, FontAttributes.Bold),
                 VerticalOptions = LayoutOptions.CenterAndExpand,
             };
+            projectsBtn.Clicked += ProjectsBtn_Clicked;
 
             var stackLayout = new StackLayout
             {
@@ -62,6 +63,10 @@ namespace HR_Module_Xamarin.View
         private async void EmployeesBtn_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new EmployeePositions());
+        }
+        private async void ProjectsBtn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ProjectsPage());
         }
 
     }
