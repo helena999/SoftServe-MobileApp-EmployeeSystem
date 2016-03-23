@@ -28,6 +28,8 @@ namespace HR_Module_Xamarin
         {
             // The root page of your application
             MainPage = new NavigationPage(new HomePage());
+
+            var employee = Database.GetEmployeeWithRelation(8);
         }
 
         protected override void OnStart()

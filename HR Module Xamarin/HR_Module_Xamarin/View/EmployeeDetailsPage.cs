@@ -99,9 +99,10 @@ namespace HR_Module_Xamarin
                 FontSize = 15
 
             };
+            
             Label phoneLabel = new Label
             {
-                Text = item.Phone.ToString(),
+                Text = item.Phone != null ? item.Phone.ToString() : "No phone set",                
                 FontSize = 30
             };
             var stackLayout = new StackLayout

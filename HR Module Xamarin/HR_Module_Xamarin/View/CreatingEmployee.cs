@@ -21,8 +21,8 @@ namespace HR_Module_Xamarin.View
 
             var name = new Entry { Placeholder = "Name", FontSize = 25 };
             name.SetBinding(Entry.TextProperty, "Name");
-            var projectName = new Entry { Placeholder = "ProjectName", Keyboard = Keyboard.Chat, FontSize = 25 };
-            projectName.SetBinding(Entry.TextProperty, "ProjectName");
+            var project = new Entry { Placeholder = "Project", Keyboard = Keyboard.Chat, FontSize = 25, IsVisible = false };
+            project.SetBinding(Entry.TextProperty, "ProjectId");
             var salary = new Entry { Placeholder = "Salary", Keyboard = Keyboard.Numeric, FontSize = 25 };
             salary.SetBinding(Entry.TextProperty, "Salary");
             var city = new Entry { Placeholder = "City", Keyboard = Keyboard.Text, FontSize = 25 };
@@ -33,27 +33,45 @@ namespace HR_Module_Xamarin.View
             phone.SetBinding(Entry.TextProperty, "Phone");
             var position = new Entry { Placeholder = "Position", Keyboard = Keyboard.Text, FontSize = 25, IsVisible = false };
             position.SetBinding(Entry.TextProperty, "PositionId");
-            //var hisManager = new Entry { Placeholder = "HisManager", Keyboard = Keyboard.Url, FontSize = 25 };
+            var hisManager = new Entry { Placeholder = "HisManager", Keyboard = Keyboard.Url, FontSize = 25, IsVisible = false };
+            hisManager.SetBinding(Entry.TextProperty, "ManId");
 
             List<string> itemsSource = HRModuleDataBase.GetPositionsName();
-            BindablePicker bindablePicker = new BindablePicker { Title = "Choose Position"};
-            bindablePicker.ItemsSource = itemsSource;
-            bindablePicker.SelectedIndexChanged += (object sender, EventArgs e) => {
+            BindablePicker bindablePositionPicker = new BindablePicker { Title = "Choose Position"};
+            bindablePositionPicker.ItemsSource = itemsSource;
+            bindablePositionPicker.SelectedIndexChanged += (object sender, EventArgs e) => {
                 var picker = sender as BindablePicker;
                 position.Text = picker.SelectedIndex.ToString();
+
+            };
+
+            List<Project> projects = App.Database.GetProjectsWithRelatons().ToList<Project>();
+            List<string> projectsnames = new List<string>();
+            for (int i = 0; i < projects.Count; i++)
+            {
+                projectsnames.Add(projects[i].Name);
+            }
+
+            BindablePicker bindableProjectPicker = new BindablePicker { Title = "Choose Project" };
+            bindableProjectPicker.ItemsSource = projectsnames;
+            bindableProjectPicker.SelectedIndexChanged += (object sender, EventArgs e) => {
+                var picker = sender as BindablePicker;
+                var pickerSelectedIndex = picker.SelectedIndex;
+                project.Text = projects[pickerSelectedIndex].Id.ToString();
+                hisManager.Text = projects[pickerSelectedIndex].ProjectManager.ID.ToString();
 
             };
 
             var saveButton = new Button { Text = "Save" };
             saveButton.Clicked += (sender, e) => {
                 var save = (Employee)BindingContext;
-                App.Database.SaveEmployee(save);
+                App.Database.SaveEmployeeWithRelation(save);
                 Navigation.PopAsync();
             };
 
             StackLayout stacklayout = new StackLayout
             {
-                Children = { name, projectName, salary, city, email, phone, bindablePicker, position, saveButton }
+                Children = { name, project, salary, city, email, phone, bindablePositionPicker, bindableProjectPicker, position, hisManager, saveButton }
             };
 
             Content = stacklayout;
