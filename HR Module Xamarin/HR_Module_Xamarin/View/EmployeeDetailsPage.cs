@@ -57,17 +57,56 @@ namespace HR_Module_Xamarin
                 Text = item.City,
                 FontSize = 30
             };
-            //Label projectLabel = new Label
-            //{
-            //    Text = item.ProjectName,
-            //    FontSize = 30
-            //};
 
-            //Label managerLabel = new Label
-            //{
-            // Text = item.Manager.ToString(),
-            //    FontSize = 30
-            //};
+            Label project = new Label
+            {
+                Text = "Project",
+                TextColor = Color.Green,
+                FontSize = 15
+            };
+
+            string projects = "";
+
+            if (item.PositionId == 6)
+            {
+                var managerProjects = App.Database.GetManagerProjectsNames(item.ID).ToList<Project>();
+
+                StringBuilder result = new StringBuilder();
+
+                int i;
+                for (i = 0; i < managerProjects.Count; i++)
+                {
+                    result.Append(managerProjects[i].Name + ", ");
+                }
+                
+                //result.Append(managerProjects[i].Name);
+
+                projects = result.ToString();
+
+                //projects = String.Join(", ", managerProjects);
+            } else {
+                projects = item.Project != null ? item.Project.Name : "No project";
+            }
+
+            Label projectLabel = new Label
+            {
+                Text = projects,
+                FontSize = 30
+            };
+
+            Label manager = new Label
+            {
+                Text = "Manager",
+                TextColor = Color.Green,
+                FontSize = 15
+            };
+
+            Label managerLabel = new Label
+            {
+                Text = item.Manager != null ? item.Manager.Name : "No manager", // TODO
+                FontSize = 30
+            };
+
             Label position = new Label
             {
                 Text = "Position",
@@ -75,11 +114,13 @@ namespace HR_Module_Xamarin
                 FontSize = 15
 
             };
+
             Label positionLabel = new Label
             {
                 Text = item.Position.Name,
                 FontSize = 30
             };
+
             Label salary = new Label
             {
                 Text = "Salary",
@@ -99,15 +140,14 @@ namespace HR_Module_Xamarin
                 FontSize = 15
 
             };
-            
             Label phoneLabel = new Label
             {
-                Text = item.Phone != null ? item.Phone.ToString() : "No phone set",                
+                Text = item.Phone.ToString(),
                 FontSize = 30
             };
             var stackLayout = new StackLayout
             {
-                Children = { name, nameLabel, email,emailLabel, work,workPlaceLabel, /*projectLabel*//*,managerLabel, */position, positionLabel, phone, phoneLabel, salary,salaryLabel }
+                Children = { name, nameLabel, email,emailLabel, work,workPlaceLabel, project, projectLabel, manager, managerLabel, position, positionLabel, phone, phoneLabel, salary,salaryLabel }
             };
 
             this.Content = stackLayout;
