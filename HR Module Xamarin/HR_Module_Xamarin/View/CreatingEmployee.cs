@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using HR_Module_Xamarin.Data;
 
 namespace HR_Module_Xamarin.View
 {
@@ -34,7 +35,7 @@ namespace HR_Module_Xamarin.View
             position.SetBinding(Entry.TextProperty, "PositionId");
             //var hisManager = new Entry { Placeholder = "HisManager", Keyboard = Keyboard.Url, FontSize = 25 };
 
-            List<string> itemsSource = new List<string> { "Unknow", "Trainee", "Junior", "intermediate", "Senior", "Team Leader", "Project Manager", "Delivery Director", "CEO" };
+            List<string> itemsSource = HRModuleDataBase.GetPositionsName();
             BindablePicker bindablePicker = new BindablePicker { Title = "Choose Position"};
             bindablePicker.ItemsSource = itemsSource;
             bindablePicker.SelectedIndexChanged += (object sender, EventArgs e) => {

@@ -16,7 +16,7 @@ namespace HR_Module_Xamarin.Data
 
         static object locker = new object();
 
-        SQLiteConnection database;
+        static SQLiteConnection database;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Tasky.DL.TaskDatabase"/> TaskDatabase. 
@@ -201,7 +201,7 @@ namespace HR_Module_Xamarin.Data
                 new Position
                 {
                     Id = 0,
-                    Name = "Uknown"
+                    Name = "Unknown"
                 },
                 new Position
                 {
@@ -251,6 +251,30 @@ namespace HR_Module_Xamarin.Data
                 }
             }         
 
+        }
+        public static List<string> GetPositionsName()
+        {
+            var sql = from i in database.Table<Position>() select i.Name;
+            var listL = new List<string>();
+
+            foreach (var item in sql)
+            {
+                listL.Add(item);
+            }
+
+            return listL;
+        }
+        public static List<string> GetPMName()
+        {
+            var sql = from i in database.Table<Employee>() where i.PositionId == 6 select i.Name;
+            var listTL = new List<string>();
+
+            foreach (var item in sql)
+            {
+                listTL.Add(item);
+            }
+
+            return listTL;
         }
     }
 }
