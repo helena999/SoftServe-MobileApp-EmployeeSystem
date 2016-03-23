@@ -13,7 +13,6 @@ namespace HR_Module_Xamarin.Data
 {
     public class HRModuleDataBase
     {
-
         static object locker = new object();
 
         static SQLiteConnection database;
@@ -43,9 +42,6 @@ namespace HR_Module_Xamarin.Data
                 return (from i in database.Table<Employee>() select i).ToList();
             }
         }
-   
-       
-
 
         public Employee GetEmployee(int id)
         {

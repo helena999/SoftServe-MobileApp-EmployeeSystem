@@ -11,7 +11,6 @@ namespace HR_Module_Xamarin.View
     {
         public HomePage()
         {
-
             Title = "HR Module";
             Label companyName = new Label
             {
@@ -43,6 +42,7 @@ namespace HR_Module_Xamarin.View
                 Font = Font.SystemFontOfSize(NamedSize.Large, FontAttributes.Bold),
                 VerticalOptions = LayoutOptions.Center,
             };
+
             employeesBtn.Clicked += EmployeesBtn_Clicked;
 
             Button projectsBtn = new Button
@@ -51,6 +51,7 @@ namespace HR_Module_Xamarin.View
                 Font = Font.SystemFontOfSize(NamedSize.Large, FontAttributes.Bold),
                 VerticalOptions = LayoutOptions.CenterAndExpand,
             };
+
             projectsBtn.Clicked += ProjectsBtn_Clicked;
 
             var stackLayout = new StackLayout
@@ -65,6 +66,7 @@ namespace HR_Module_Xamarin.View
         {
             await Navigation.PushAsync(new EmployeePositions());
         }
+
         private async void ProjectsBtn_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ProjectsPage());

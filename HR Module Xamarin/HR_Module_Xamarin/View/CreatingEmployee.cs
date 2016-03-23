@@ -21,18 +21,25 @@ namespace HR_Module_Xamarin.View
 
             var name = new Entry { Placeholder = "Name", FontSize = 25 };
             name.SetBinding(Entry.TextProperty, "Name");
+
             var project = new Entry { Placeholder = "Project", Keyboard = Keyboard.Chat, FontSize = 25, IsVisible = false };
             project.SetBinding(Entry.TextProperty, "ProjectId");
+
             var salary = new Entry { Placeholder = "Salary", Keyboard = Keyboard.Numeric, FontSize = 25 };
             salary.SetBinding(Entry.TextProperty, "Salary");
+
             var city = new Entry { Placeholder = "City", Keyboard = Keyboard.Text, FontSize = 25 };
             city.SetBinding(Entry.TextProperty, "City");
+
             var email = new Entry { Placeholder = "Email", Keyboard = Keyboard.Email, FontSize = 25 };
             email.SetBinding(Entry.TextProperty, "Email");
+
             var phone = new Entry { Placeholder = "Phone", Keyboard = Keyboard.Telephone, FontSize = 25 };
             phone.SetBinding(Entry.TextProperty, "Phone");
+
             var position = new Entry { Placeholder = "Position", Keyboard = Keyboard.Text, FontSize = 25, IsVisible = false };
             position.SetBinding(Entry.TextProperty, "PositionId");
+
             var hisManager = new Entry { Placeholder = "HisManager", Keyboard = Keyboard.Url, FontSize = 25, IsVisible = false };
             hisManager.SetBinding(Entry.TextProperty, "ManId");
 
@@ -70,7 +77,6 @@ namespace HR_Module_Xamarin.View
                 var pickerSelectedIndex = picker.SelectedIndex;
                 project.Text = projects[pickerSelectedIndex].Id.ToString();
                 hisManager.Text = projects[pickerSelectedIndex].ProjectManager.ID.ToString();
-
             };
 
             // Get all positions
@@ -92,9 +98,7 @@ namespace HR_Module_Xamarin.View
                     bindableProjectPicker.IsVisible = true;
                 }
             };
-
-
-
+            
             var saveButton = new Button { Text = "Save" };
             saveButton.Clicked += (sender, e) => {
                 var save = (Employee)BindingContext;

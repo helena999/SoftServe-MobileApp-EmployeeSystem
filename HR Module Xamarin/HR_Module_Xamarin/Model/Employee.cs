@@ -12,8 +12,6 @@ namespace HR_Module_Xamarin.View
 {
     public class Employee
     {
-
-
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public string Name { get; set; }

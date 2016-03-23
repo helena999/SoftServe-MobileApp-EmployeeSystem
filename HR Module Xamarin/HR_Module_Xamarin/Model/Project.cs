@@ -12,7 +12,6 @@ namespace HR_Module_Xamarin.Model
 {
     public class Project
     {
-
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 

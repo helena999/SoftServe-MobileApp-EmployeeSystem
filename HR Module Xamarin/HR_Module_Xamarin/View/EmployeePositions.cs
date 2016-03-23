@@ -24,13 +24,13 @@ namespace HR_Module_Xamarin
             {
                 Employee item = (Employee)e.Item;
                 await Navigation.PushAsync(new EmployeeDetailsPage(item));
-
-
             };
+
             Button createEmployee = new Button
             {
                 Text = "Create New Employee"
             };
+
             createEmployee.Clicked += async (sender, args) =>
             await Navigation.PushAsync(new CreatingEmployee());
 
@@ -39,8 +39,6 @@ namespace HR_Module_Xamarin
             layout.Children.Add(createEmployee);
             layout.VerticalOptions = LayoutOptions.FillAndExpand;
             Content = layout;
-
-            
         }
        
         protected override void OnAppearing()
@@ -56,7 +54,6 @@ namespace HR_Module_Xamarin
         {
             var name = new Label
             {
-               
                 HorizontalOptions = LayoutOptions.Start,
                 FontSize = 20
             };
@@ -76,6 +73,7 @@ namespace HR_Module_Xamarin
                 Orientation = StackOrientation.Horizontal,
                 Children = { name, position }
             };
+
             View = layout;
         }
     }

@@ -21,6 +21,7 @@ namespace HR_Module_Xamarin.View
 
             var name = new Entry { Placeholder = "Name", FontSize = 25 };
             name.SetBinding(Entry.TextProperty, "Name");
+
             var projectManager = new Entry { Placeholder = "Project Manager", Keyboard = Keyboard.Chat, FontSize = 25, IsVisible = false };
             projectManager.SetBinding(Entry.TextProperty, "PM");
 

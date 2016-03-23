@@ -24,13 +24,13 @@ namespace HR_Module_Xamarin
             {
                 Project item = (Project)e.Item;
                 await Navigation.PushAsync(new ProjectDetailsPage(item));
-
-
             };
+
             Button createProject = new Button
             {
                 Text = "Create project"
             };
+
             createProject.Clicked += async (sender, args) =>
             await Navigation.PushAsync(new ProjectCreatePage());
 
@@ -39,8 +39,6 @@ namespace HR_Module_Xamarin
             layout.Children.Add(createProject);
             layout.VerticalOptions = LayoutOptions.FillAndExpand;
             Content = layout;
-
-
         }
 
         protected override void OnAppearing()
@@ -56,10 +54,10 @@ namespace HR_Module_Xamarin
         {
             var name = new Label
             {
-
                 HorizontalOptions = LayoutOptions.Start,
                 FontSize = 20
             };
+
             name.SetBinding(Label.TextProperty, "Name");
 
             var position = new Label
@@ -68,6 +66,7 @@ namespace HR_Module_Xamarin
                 FontSize = 20,
                 TextColor = Color.Green
             };
+
             position.SetBinding(Label.TextProperty, "Project.Name");
 
             var layout = new StackLayout
@@ -76,6 +75,7 @@ namespace HR_Module_Xamarin
                 Orientation = StackOrientation.Horizontal,
                 Children = { name, position }
             };
+
             View = layout;
         }
     }

@@ -13,20 +13,19 @@ namespace HR_Module_Xamarin
     {
         private Employee item;
       
-
         public EmployeeDetailsPage(Employee item)
         {
             Title = "Employee Details Page";
-
-              
-
+            
             this.item = item;
+
             Label name = new Label
             {
                 Text = "Name",
                 TextColor = Color.Green,
                 FontSize = 15
             };
+
             Label nameLabel = new Label
             {
                 VerticalOptions = LayoutOptions.Center,
@@ -40,18 +39,20 @@ namespace HR_Module_Xamarin
                 TextColor = Color.Green,
                 FontSize = 15
             };
+
             Label emailLabel = new Label
             {
                 Text = item.Email,
                 FontSize = 30
             };
+
             Label work = new Label
             {
                 Text = "City",
                 TextColor = Color.Green,
                 FontSize = 15
-
             };
+
             Label workPlaceLabel = new Label
             {
                 Text = item.City,
@@ -74,17 +75,17 @@ namespace HR_Module_Xamarin
                 StringBuilder result = new StringBuilder();
 
                 int i;
-                for (i = 0; i < managerProjects.Count; i++)
+                for (i = 0; i < managerProjects.Count - 1; i++)
                 {
                     result.Append(managerProjects[i].Name + ", ");
                 }
                 
-                //result.Append(managerProjects[i].Name);
+                result.Append(managerProjects[i].Name);
 
                 projects = result.ToString();
-
-                //projects = String.Join(", ", managerProjects);
-            } else {
+            }
+            else
+            {
                 projects = item.Project != null ? item.Project.Name : "No project";
             }
 
@@ -128,11 +129,13 @@ namespace HR_Module_Xamarin
                 FontSize = 15
 
             };
+
             Label salaryLabel = new Label
             {
                 Text = item.Salary,
                 FontSize = 30
             };
+
             Label phone = new Label
             {
                 Text = "Phone",
@@ -140,6 +143,7 @@ namespace HR_Module_Xamarin
                 FontSize = 15
 
             };
+
             Label phoneLabel = new Label
             {
                 Text = item.Phone != null ? item.Phone : "No phone",
