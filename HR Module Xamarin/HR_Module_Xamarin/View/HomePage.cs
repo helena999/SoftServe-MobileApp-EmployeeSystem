@@ -11,6 +11,7 @@ namespace HR_Module_Xamarin.View
     {
         public HomePage()
         {
+
             Title = "HR Module";
             Label companyName = new Label
             {

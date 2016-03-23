@@ -43,6 +43,7 @@
     <Compile Include="Model\Project.cs" />
     <Compile Include="View\BindablePicker.cs" />
     <Compile Include="View\CreatingEmployee.cs" />
+    <Compile Include="View\EditEmployeePage.cs" />
     <Compile Include="View\EmployeeDetailsPage.cs" />
     <Compile Include="View\EmployeePositions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

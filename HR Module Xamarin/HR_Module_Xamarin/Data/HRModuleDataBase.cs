@@ -90,7 +90,14 @@ namespace HR_Module_Xamarin.Data
         {
             lock (locker)
             {
-                return database.Insert(item);
+                if (item.ID != 0)
+                {
+                    database.Update(item);
+                    return item.ID;
+                }
+                else {
+                    return database.Insert(item);
+                }
             }
         }
         //need to fix returt type

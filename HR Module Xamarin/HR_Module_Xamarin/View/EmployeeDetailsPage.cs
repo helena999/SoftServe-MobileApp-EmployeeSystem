@@ -145,12 +145,30 @@ namespace HR_Module_Xamarin
                 Text = item.Phone != null ? item.Phone : "No phone",
                 FontSize = 30
             };
+
+            var editButton = new Button { Text = "Edit Employee" };
+            editButton.Clicked += async (sender, args) =>
+            await Navigation.PushAsync(new EditEmployeePage(item));
+
+            var goHomeButton = new Button { Text = "HomePage" };
+            goHomeButton.Clicked += async (sender, e) => {
+                await Navigation.PushAsync(new HomePage());
+            };
+
             var stackLayout = new StackLayout
             {
-                Children = { name, nameLabel, email,emailLabel, work,workPlaceLabel, project, projectLabel, manager, managerLabel, position, positionLabel, phone, phoneLabel, salary,salaryLabel }
+                Children = { name, nameLabel, email,emailLabel, work,workPlaceLabel, project, projectLabel, manager, managerLabel, position, positionLabel, phone, phoneLabel, salary,salaryLabel, editButton, goHomeButton }
             };
 
             this.Content = stackLayout;
+
+            //listView.ItemTapped += async (sender, e) =>
+            //{
+            //    Employee item = (Employee)e.Item;
+            //    await Navigation.PushAsync(new EmployeeDetailsPage(item));
+
+
+            //};
         }
     }
 }
