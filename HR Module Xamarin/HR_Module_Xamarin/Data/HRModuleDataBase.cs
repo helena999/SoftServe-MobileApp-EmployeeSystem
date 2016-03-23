@@ -284,6 +284,13 @@ namespace HR_Module_Xamarin.Data
             return projectManagers;
         }
 
+        public IEnumerable<Employee> GetDeliveryDirectors()
+        {
+            var projectManagers = from i in database.Table<Employee>() where i.PositionId == 7 select i;
+
+            return projectManagers;
+        }
+
         public IEnumerable<Project> GetManagerProjectsNames(int managerId)
         {
             var managerProjects = from projects in database.Table<Project>() where projects.PM == managerId select projects;

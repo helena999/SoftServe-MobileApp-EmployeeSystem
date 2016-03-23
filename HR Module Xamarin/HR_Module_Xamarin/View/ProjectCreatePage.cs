@@ -31,9 +31,9 @@ namespace HR_Module_Xamarin.View
                 employeesNames.Add(employees[i].Name);
             }
 
-            BindablePicker bindablePicker = new BindablePicker { Title = "Choose Position" };
-            bindablePicker.ItemsSource = employeesNames;
-            bindablePicker.SelectedIndexChanged += (object sender, EventArgs e) => {
+            BindablePicker bindableProjectManagerPicker = new BindablePicker { Title = "Choose Project Manager" };
+            bindableProjectManagerPicker.ItemsSource = employeesNames;
+            bindableProjectManagerPicker.SelectedIndexChanged += (object sender, EventArgs e) => {
                 var picker = sender as BindablePicker;
                 var pickerSelectedIndex = picker.SelectedIndex;
                 projectManager.Text = employees[pickerSelectedIndex].ID.ToString();
@@ -49,7 +49,7 @@ namespace HR_Module_Xamarin.View
 
             StackLayout stacklayout = new StackLayout
             {
-                Children = { name, projectManager, bindablePicker, saveButton, }
+                Children = { name, projectManager, bindableProjectManagerPicker, saveButton, }
             };
 
             Content = stacklayout;

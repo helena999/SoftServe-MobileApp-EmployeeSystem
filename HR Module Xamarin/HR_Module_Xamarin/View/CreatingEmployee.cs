@@ -36,15 +36,25 @@ namespace HR_Module_Xamarin.View
             var hisManager = new Entry { Placeholder = "HisManager", Keyboard = Keyboard.Url, FontSize = 25, IsVisible = false };
             hisManager.SetBinding(Entry.TextProperty, "ManId");
 
-            List<string> itemsSource = HRModuleDataBase.GetPositionsName();
-            BindablePicker bindablePositionPicker = new BindablePicker { Title = "Choose Position"};
-            bindablePositionPicker.ItemsSource = itemsSource;
-            bindablePositionPicker.SelectedIndexChanged += (object sender, EventArgs e) => {
-                var picker = sender as BindablePicker;
-                position.Text = picker.SelectedIndex.ToString();
+            // Get Delivery Directors for Project Managers
+            List<Employee> managers = App.Database.GetDeliveryDirectors().ToList<Employee>();
+            List<string> managersNames = new List<string>();
+            for (int i = 0; i < managers.Count; i++)
+            {
+                managersNames.Add(managers[i].Name);
+            }
 
+            // Set Delivery Director to the current Project Manager
+            BindablePicker bindableManagersPicker = new BindablePicker { Title = "Choose Manager" };
+            bindableManagersPicker.IsVisible = false;
+            bindableManagersPicker.ItemsSource = managersNames;
+            bindableManagersPicker.SelectedIndexChanged += (object sender, EventArgs e) => {
+                var picker = sender as BindablePicker;
+                var pickerSelectedIndex = picker.SelectedIndex;
+                hisManager.Text = managers[pickerSelectedIndex].ID.ToString();
             };
 
+            // Get all projects for the Employees
             List<Project> projects = App.Database.GetProjectsWithRelatons().ToList<Project>();
             List<string> projectsnames = new List<string>();
             for (int i = 0; i < projects.Count; i++)
@@ -52,6 +62,7 @@ namespace HR_Module_Xamarin.View
                 projectsnames.Add(projects[i].Name);
             }
 
+            // Set Project to current Employee
             BindablePicker bindableProjectPicker = new BindablePicker { Title = "Choose Project" };
             bindableProjectPicker.ItemsSource = projectsnames;
             bindableProjectPicker.SelectedIndexChanged += (object sender, EventArgs e) => {
@@ -62,6 +73,28 @@ namespace HR_Module_Xamarin.View
 
             };
 
+            // Get all positions
+            List<string> positions = HRModuleDataBase.GetPositionsName();
+            // Set Position to the Employee
+            BindablePicker bindablePositionPicker = new BindablePicker { Title = "Choose Position"};
+            bindablePositionPicker.ItemsSource = positions;
+            bindablePositionPicker.SelectedIndexChanged += (object sender, EventArgs e) => {
+                var picker = sender as BindablePicker;
+                position.Text = picker.SelectedIndex.ToString();
+                if (position.Text == "6")
+                {
+                    bindableManagersPicker.IsVisible = true;
+                    bindableProjectPicker.IsVisible = false;
+                }
+                else
+                {
+                    bindableManagersPicker.IsVisible = false;
+                    bindableProjectPicker.IsVisible = true;
+                }
+            };
+
+
+
             var saveButton = new Button { Text = "Save" };
             saveButton.Clicked += (sender, e) => {
                 var save = (Employee)BindingContext;
@@ -71,7 +104,7 @@ namespace HR_Module_Xamarin.View
 
             StackLayout stacklayout = new StackLayout
             {
-                Children = { name, project, salary, city, email, phone, bindablePositionPicker, bindableProjectPicker, position, hisManager, saveButton }
+                Children = { name, project, salary, city, email, phone, bindablePositionPicker, bindableProjectPicker, position, hisManager, bindableManagersPicker, saveButton }
             };
 
             Content = stacklayout;

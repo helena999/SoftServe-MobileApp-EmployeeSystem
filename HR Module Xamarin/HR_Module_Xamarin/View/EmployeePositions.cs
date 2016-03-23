@@ -64,7 +64,7 @@ namespace HR_Module_Xamarin
 
             var position = new Label
             {
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalOptions = LayoutOptions.EndAndExpand,
                 FontSize = 20,
                 TextColor = Color.Green
             };

@@ -142,7 +142,7 @@ namespace HR_Module_Xamarin
             };
             Label phoneLabel = new Label
             {
-                Text = item.Phone.ToString(),
+                Text = item.Phone != null ? item.Phone : "No phone",
                 FontSize = 30
             };
             var stackLayout = new StackLayout
