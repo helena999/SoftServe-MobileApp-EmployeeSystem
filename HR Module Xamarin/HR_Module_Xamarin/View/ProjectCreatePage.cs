@@ -24,12 +24,19 @@ namespace HR_Module_Xamarin.View
             var projectManager = new Entry { Placeholder = "Project Manager", Keyboard = Keyboard.Chat, FontSize = 25, IsVisible = false };
             projectManager.SetBinding(Entry.TextProperty, "PM");
 
-            List<string> itemsSource = HRModuleDataBase.GetPMName();
+            List<Employee> employees = App.Database.GetProjectManagers().ToList<Employee>();
+            List<string> employeesNames = new List<string>();
+            for (int i = 0; i < employees.Count; i++)
+            {
+                employeesNames.Add(employees[i].Name);
+            }
+
             BindablePicker bindablePicker = new BindablePicker { Title = "Choose Position" };
-            bindablePicker.ItemsSource = itemsSource;
+            bindablePicker.ItemsSource = employeesNames;
             bindablePicker.SelectedIndexChanged += (object sender, EventArgs e) => {
                 var picker = sender as BindablePicker;
-                projectManager.Text = picker.SelectedIndex.ToString();
+                var pickerSelectedIndex = picker.SelectedIndex;
+                projectManager.Text = employees[pickerSelectedIndex].ID.ToString();
 
             };
 

@@ -276,5 +276,12 @@ namespace HR_Module_Xamarin.Data
 
             return listTL;
         }
+
+        public IEnumerable<Employee> GetProjectManagers()
+        {
+            var projectManagers = from i in database.Table<Employee>() where i.PositionId == 6 select i;
+
+            return projectManagers;
+        }
     }
 }
