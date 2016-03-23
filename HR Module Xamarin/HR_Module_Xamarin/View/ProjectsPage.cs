@@ -45,7 +45,7 @@ namespace HR_Module_Xamarin
         {
             base.OnAppearing();
             ((App)App.Current).ResumeAtTodoId = -1;
-            listView.ItemsSource = App.Database.GetProjectsWithRelatons();
+            listView.ItemsSource = App.Database.GetProjectsWithRelations();
         }
     }
     public class ProjectCell : ViewCell

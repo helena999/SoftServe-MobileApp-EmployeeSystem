@@ -62,7 +62,7 @@ namespace HR_Module_Xamarin.View
             };
 
             // Get all projects for the Employees
-            List<Project> projects = App.Database.GetProjectsWithRelatons().ToList<Project>();
+            List<Project> projects = App.Database.GetProjectsWithRelations().ToList<Project>();
             List<string> projectsnames = new List<string>();
             for (int i = 0; i < projects.Count; i++)
             {

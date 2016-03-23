@@ -51,7 +51,7 @@ namespace HR_Module_Xamarin.Data
             }
         }
 
-        public IEnumerable<Employee> GetEmployeesWithRelatins()
+        public IEnumerable<Employee> GetEmployeesWithRelations()
         {
             lock (locker)
             {
@@ -127,7 +127,7 @@ namespace HR_Module_Xamarin.Data
         }
 
 
-        public IEnumerable<Project> GetProjectsWithRelatons()
+        public IEnumerable<Project> GetProjectsWithRelations()
         {
             lock (locker)
             {

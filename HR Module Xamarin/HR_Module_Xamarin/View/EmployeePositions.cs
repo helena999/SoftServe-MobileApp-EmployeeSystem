@@ -45,7 +45,7 @@ namespace HR_Module_Xamarin
         {
             base.OnAppearing();
             ((App)App.Current).ResumeAtTodoId = -1;
-            listView.ItemsSource = App.Database.GetEmployeesWithRelatins();
+            listView.ItemsSource = App.Database.GetEmployeesWithRelations();
         }
     }
     public class EmployeeCell : ViewCell
