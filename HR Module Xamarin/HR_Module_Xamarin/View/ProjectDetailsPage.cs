@@ -24,28 +24,28 @@ namespace HR_Module_Xamarin
             {
                 Text = "Name",
                 TextColor = Color.Green,
-                FontSize = 15
+                FontSize = Constants.TitleLabelSize
             };
 
             Label name = new Label
             {
                 VerticalOptions = LayoutOptions.Center,
                 Text = item.Name,
-                FontSize = 30
+                FontSize = Constants.ValueLabelSize
             };
             
             Label projectManagerLabel = new Label
             {
                 Text = "Project manager",
                 TextColor = Color.Green,
-                FontSize = 15
+                FontSize = Constants.TitleLabelSize
             };
 
             Label projectManager = new Label
             {
                 VerticalOptions = LayoutOptions.Center,
                 Text = item.ProjectManager.Name,
-                FontSize = 30
+                FontSize = Constants.ValueLabelSize
             };
 
             string employeesString = "";
@@ -56,14 +56,14 @@ namespace HR_Module_Xamarin
             {
                 Text = "Employees",
                 TextColor = Color.Green,
-                FontSize = 15
+                FontSize = Constants.TitleLabelSize
             };
 
             Label employees = new Label
             {
                 VerticalOptions = LayoutOptions.Center,
                 Text = employeesString,
-                FontSize = 30
+                FontSize = Constants.ValueLabelSize
             };
 
             var stackLayout = new StackLayout

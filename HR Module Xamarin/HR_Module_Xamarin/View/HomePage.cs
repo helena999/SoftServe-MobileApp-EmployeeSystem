@@ -15,7 +15,7 @@ namespace HR_Module_Xamarin.View
             Label companyName = new Label
             {
                 Text = "XcompanY",
-                FontSize = 30,
+                FontSize = Constants.ValueLabelSize,
                 XAlign = TextAlignment.Center,
                 VerticalOptions = LayoutOptions.Start
             };
@@ -23,7 +23,7 @@ namespace HR_Module_Xamarin.View
             Label pageDescriptionLbl = new Label
             {
                 Text = "\nWelcome to our Employees Management System.\n\n Manage employees anywhere, anytime!\n",
-                FontSize = 30,
+                FontSize = Constants.ValueLabelSize,
                 XAlign = TextAlignment.Center,
                 VerticalOptions = LayoutOptions.Start
             };

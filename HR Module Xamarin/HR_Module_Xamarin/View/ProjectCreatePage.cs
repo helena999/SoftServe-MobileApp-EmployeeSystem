@@ -20,10 +20,10 @@ namespace HR_Module_Xamarin.View
 
             this.BindingContext = project;
 
-            var name = new Entry { Placeholder = "Name", FontSize = 25 };
+            var name = new Entry { Placeholder = "Name", FontSize = Constants.ValueLabelSize };
             name.SetBinding(Entry.TextProperty, "Name");
 
-            var projectManager = new Entry { Placeholder = "Project Manager", Keyboard = Keyboard.Chat, FontSize = 25, IsVisible = false };
+            var projectManager = new Entry { Placeholder = "Project Manager", Keyboard = Keyboard.Chat, FontSize = Constants.ValueLabelSize, IsVisible = false };
             projectManager.SetBinding(Entry.TextProperty, "PM");
 
             List<Employee> employees = App.Database.GetProjectManagers().ToList<Employee>();

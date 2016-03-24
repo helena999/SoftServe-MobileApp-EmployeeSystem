@@ -18,28 +18,28 @@ namespace HR_Module_Xamarin.View
 
             this.BindingContext = employee;
 
-            var name = new Entry { Placeholder = "Name", FontSize = 25 };
+            var name = new Entry { Placeholder = "Name", FontSize = Constants.ValueLabelSize };
             name.SetBinding(Entry.TextProperty, "Name");
 
-            var project = new Entry { Placeholder = "Project", Keyboard = Keyboard.Chat, FontSize = 25, IsVisible = false };
+            var project = new Entry { Placeholder = "Project", Keyboard = Keyboard.Chat, FontSize = Constants.ValueLabelSize, IsVisible = false };
             project.SetBinding(Entry.TextProperty, "ProjectId");
 
-            var salary = new Entry { Placeholder = "Salary", Keyboard = Keyboard.Numeric, FontSize = 25 };
+            var salary = new Entry { Placeholder = "Salary", Keyboard = Keyboard.Numeric, FontSize = Constants.ValueLabelSize };
             salary.SetBinding(Entry.TextProperty, "Salary");
 
-            var city = new Entry { Placeholder = "City", Keyboard = Keyboard.Text, FontSize = 25 };
+            var city = new Entry { Placeholder = "City", Keyboard = Keyboard.Text, FontSize = Constants.ValueLabelSize };
             city.SetBinding(Entry.TextProperty, "City");
 
-            var email = new Entry { Placeholder = "Email", Keyboard = Keyboard.Email, FontSize = 25 };
+            var email = new Entry { Placeholder = "Email", Keyboard = Keyboard.Email, FontSize = Constants.ValueLabelSize };
             email.SetBinding(Entry.TextProperty, "Email");
 
-            var phone = new Entry { Placeholder = "Phone", Keyboard = Keyboard.Telephone, FontSize = 25 };
+            var phone = new Entry { Placeholder = "Phone", Keyboard = Keyboard.Telephone, FontSize = Constants.ValueLabelSize };
             phone.SetBinding(Entry.TextProperty, "Phone");
 
-            var position = new Entry { Placeholder = "Position", Keyboard = Keyboard.Text, FontSize = 25, IsVisible = false };
+            var position = new Entry { Placeholder = "Position", Keyboard = Keyboard.Text, FontSize = Constants.ValueLabelSize, IsVisible = false };
             position.SetBinding(Entry.TextProperty, "PositionId");
 
-            var hisManager = new Entry { Placeholder = "HisManager", Keyboard = Keyboard.Url, FontSize = 25, IsVisible = false };
+            var hisManager = new Entry { Placeholder = "HisManager", Keyboard = Keyboard.Url, FontSize = Constants.ValueLabelSize, IsVisible = false };
             hisManager.SetBinding(Entry.TextProperty, "ManId");
 
             // Get Delivery Directors for Project Managers

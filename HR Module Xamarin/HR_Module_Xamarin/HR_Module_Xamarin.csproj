@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Controls\BindablePicker.cs" />
     <Compile Include="Data\HRModuleDataBase.cs" />
     <Compile Include="Data\ISQLite.cs" />

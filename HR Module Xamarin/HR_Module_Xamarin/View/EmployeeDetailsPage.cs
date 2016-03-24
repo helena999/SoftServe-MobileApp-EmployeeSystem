@@ -23,47 +23,47 @@ namespace HR_Module_Xamarin
             {
                 Text = "Name",
                 TextColor = Color.Green,
-                FontSize = 15
+                FontSize = Constants.TitleLabelSize
             };
 
             Label nameLabel = new Label
             {
                 VerticalOptions = LayoutOptions.Center,
                 Text = item.Name,
-                FontSize = 30
+                FontSize = Constants.ValueLabelSize
             };
 
             Label email = new Label
             {
                 Text = "Email",
                 TextColor = Color.Green,
-                FontSize = 15
+                FontSize = Constants.TitleLabelSize
             };
 
             Label emailLabel = new Label
             {
                 Text = item.Email,
-                FontSize = 30
+                FontSize = Constants.ValueLabelSize
             };
 
             Label work = new Label
             {
                 Text = "City",
                 TextColor = Color.Green,
-                FontSize = 15
+                FontSize = Constants.TitleLabelSize
             };
 
             Label workPlaceLabel = new Label
             {
                 Text = item.City,
-                FontSize = 30
+                FontSize = Constants.ValueLabelSize
             };
 
             Label project = new Label
             {
                 Text = "Project",
                 TextColor = Color.Green,
-                FontSize = 15
+                FontSize = Constants.TitleLabelSize
             };
 
             string projects = "";
@@ -82,62 +82,59 @@ namespace HR_Module_Xamarin
            Label projectLabel = new Label
             {
                 Text = projects,
-                FontSize = 30
-            };
+                FontSize = Constants.ValueLabelSize
+           };
 
             Label manager = new Label
             {
                 Text = "Manager",
                 TextColor = Color.Green,
-                FontSize = 15
+                FontSize = Constants.TitleLabelSize
             };
 
             Label managerLabel = new Label
             {
                 Text = item.Manager != null ? item.Manager.Name : "No manager", // TODO
-                FontSize = 30
+                FontSize = Constants.ValueLabelSize
             };
 
             Label position = new Label
             {
                 Text = "Position",
                 TextColor = Color.Green,
-                FontSize = 15
-
+                FontSize = Constants.TitleLabelSize
             };
 
             Label positionLabel = new Label
             {
                 Text = item.Position.Name,
-                FontSize = 30
+                FontSize = Constants.ValueLabelSize
             };
 
             Label salary = new Label
             {
                 Text = "Salary",
                 TextColor = Color.Green,
-                FontSize = 15
-
+                FontSize = Constants.TitleLabelSize
             };
 
             Label salaryLabel = new Label
             {
                 Text = item.Salary,
-                FontSize = 30
+                FontSize = Constants.ValueLabelSize
             };
 
             Label phone = new Label
             {
                 Text = "Phone",
                 TextColor = Color.Green,
-                FontSize = 15
-
+                FontSize = Constants.TitleLabelSize
             };
 
             Label phoneLabel = new Label
             {
                 Text = item.Phone != null ? item.Phone : "No phone",
-                FontSize = 30
+                FontSize = Constants.ValueLabelSize
             };
 
             var editButton = new Button { Text = "Edit Employee" };
