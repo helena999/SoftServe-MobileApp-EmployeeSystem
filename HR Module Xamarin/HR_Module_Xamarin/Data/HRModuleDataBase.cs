@@ -300,5 +300,12 @@ namespace HR_Module_Xamarin.Data
 
             return managerProjects;
         }
+
+        /*public IEnumerable<Employee> GetProjectEmployees(int projectId)
+        {
+            var projectEmployees = from projects in database.Table<Project>() where projects.Id == projectId select projects;
+
+            return projectEmployees;
+        }*/
     }
 }

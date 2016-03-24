@@ -48,9 +48,44 @@ namespace HR_Module_Xamarin
                 FontSize = 30
             };
 
+            string employeesString;
+
+            if (item.Employees.Count != 0)
+            {
+                StringBuilder result = new StringBuilder();
+
+                int i;
+                for (i = 0; i < item.Employees.Count - 1; i++)
+                {
+                    result.Append(item.Employees[i].Name + ", ");
+                }
+
+                result.Append(item.Employees[i].Name);
+
+                employeesString = result.ToString();
+            }
+            else
+            {
+                employeesString = "No employees";
+            }
+
+            Label employeesLabel = new Label
+            {
+                Text = "Employees",
+                TextColor = Color.Green,
+                FontSize = 15
+            };
+
+            Label employees = new Label
+            {
+                VerticalOptions = LayoutOptions.Center,
+                Text = employeesString,
+                FontSize = 30
+            };
+
             var stackLayout = new StackLayout
             {
-                Children = { nameLabel, name, projectManagerLabel, projectManager }
+                Children = { nameLabel, name, projectManagerLabel, projectManager, employeesLabel, employees }
             };
 
             this.Content = stackLayout;
