@@ -86,7 +86,9 @@ namespace HR_Module_Xamarin.View
             bindablePositionPicker.SelectedIndexChanged += (object sender, EventArgs e) => {
                 var picker = sender as BindablePicker;
                 position.Text = picker.SelectedIndex.ToString();
-                if (position.Text == "6")
+
+                int projectManagerId = (int)Constants.Positions.ProjectManager;
+                if (position.Text == projectManagerId.ToString())
                 {
                     bindableManagersPicker.IsVisible = true;
                     bindableProjectPicker.IsVisible = false;

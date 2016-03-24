@@ -219,14 +219,14 @@ namespace HR_Module_Xamarin.Data
 
         public IEnumerable<Employee> GetProjectManagers()
         {
-            var projectManagers = from i in database.Table<Employee>() where i.PositionId == 6 select i;
+            var projectManagers = from i in database.Table<Employee>() where i.PositionId == (int)Constants.Positions.ProjectManager select i;
 
             return projectManagers;
         }
 
         public IEnumerable<Employee> GetDeliveryDirectors()
         {
-            var projectManagers = from i in database.Table<Employee>() where i.PositionId == 7 select i;
+            var projectManagers = from i in database.Table<Employee>() where i.PositionId == (int)Constants.Positions.DeliveryDirector select i;
 
             return projectManagers;
         }

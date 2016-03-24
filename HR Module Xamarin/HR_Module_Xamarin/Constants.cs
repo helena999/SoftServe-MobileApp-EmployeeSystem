@@ -11,5 +11,7 @@ namespace HR_Module_Xamarin
         public const int TitleLabelSize = 15;
 
         public const int ValueLabelSize = 20;
+
+        public enum Positions { ProjectManager = 6, DeliveryDirector = 7};
     }
 }

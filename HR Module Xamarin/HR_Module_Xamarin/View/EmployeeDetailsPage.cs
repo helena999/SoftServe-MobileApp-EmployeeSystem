@@ -68,7 +68,7 @@ namespace HR_Module_Xamarin
 
             string projects = "";
 
-            if (item.PositionId == 6)
+            if (item.PositionId == (int)Constants.Positions.ProjectManager)
             {
                 var managerProjects = App.Database.GetManagerProjectsNames(item.ID);
 
