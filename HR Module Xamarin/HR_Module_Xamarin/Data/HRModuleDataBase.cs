@@ -17,13 +17,6 @@ namespace HR_Module_Xamarin.Data
 
         static SQLiteConnection database;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Tasky.DL.TaskDatabase"/> TaskDatabase. 
-        /// if the database doesn't exist, it will create the database and all the tables.
-        /// </summary>
-        /// <param name='path'>
-        /// Path.
-        /// </param>
         public HRModuleDataBase()
         {
             database = DependencyService.Get<ISQLite>().GetConnection();
@@ -36,22 +29,6 @@ namespace HR_Module_Xamarin.Data
             database.CreateTable<Project>();
         }
 
-        public IEnumerable<Employee> GetEmployee()
-        {
-            lock (locker)
-            {
-                return (from i in database.Table<Employee>() select i).ToList();
-            }
-        }
-
-        public Employee GetEmployee(int id)
-        {
-            lock (locker)
-            {
-                return database.Table<Employee>().FirstOrDefault(x => x.ID == id);
-            }
-        }
-
         public IEnumerable<Employee> GetEmployeesWithRelations()
         {
             lock (locker)
@@ -59,30 +36,6 @@ namespace HR_Module_Xamarin.Data
                 return database.GetAllWithChildren<Employee>();
             }
         }
-
-        public Employee GetEmployeeWithRelation(int id)
-        {
-            lock (locker)
-            {
-                return database.GetWithChildren<Employee>(id);
-            }
-        }
-
-        //public int SaveEmployee(Employee item)
-        //{
-        //    lock (locker)
-        //    {
-        //        if (item.ID != 0)
-        //        {
-        //            database.Update(item);
-        //            return item.ID;
-        //        }
-        //        else {
-        //            return database.Insert(item);
-        //        }
-        //    }
-        //}
-
         public int SaveEmployee(Employee item)
         {
             lock (locker)
@@ -111,45 +64,12 @@ namespace HR_Module_Xamarin.Data
             }
         }
 
-        public void SaveProjectWithRelation(Project item)
-        {
-            lock (locker)
-            {
-                database.Insert(item);
-            }
-        }
-
-        public IEnumerable<Project> GetProject()
-        {
-            lock (locker)
-            {
-                return (from i in database.Table<Project>() select i).ToList();
-            }
-        }
-
 
         public IEnumerable<Project> GetProjectsWithRelations()
         {
             lock (locker)
             {
                 return database.GetAllWithChildren<Project>();
-            }
-        }
-
-        //public Project GetProjectWithRelatons(int id)
-        //{
-        //    lock (locker)
-        //    {
-        //        return database.GetWithChildren<Project>(id);
-        //    }
-        //}
-
-
-        public Project GetProject(int id)
-        {
-            lock (locker)
-            {
-                return database.Table<Project>().FirstOrDefault(x => x.Id == id);
             }
         }
 
@@ -167,16 +87,6 @@ namespace HR_Module_Xamarin.Data
                 }
             }
         }
-
-        public int DeleteItem(int id)
-        {
-            lock (locker)
-            {
-                return database.Delete<Project>(id);
-            }
-
-        }
-
         public Position GetPosition(int id)
         {
             lock (locker)
@@ -305,18 +215,6 @@ namespace HR_Module_Xamarin.Data
             }
 
             return listL;
-        }
-        public static List<string> GetPMName()
-        {
-            var sql = from i in database.Table<Employee>() where i.PositionId == 6 select i.Name;
-            var listTL = new List<string>();
-
-            foreach (var item in sql)
-            {
-                listTL.Add(item);
-            }
-
-            return listTL;
         }
 
         public IEnumerable<Employee> GetProjectManagers()
