@@ -32,6 +32,7 @@ namespace HR_Module_Xamarin.Data
             database.CreateTable<Position>();
             SeedPositions();
             database.CreateTable<Employee>();
+            SeedCEOandDD();
             database.CreateTable<Project>();
         }
 
@@ -252,9 +253,47 @@ namespace HR_Module_Xamarin.Data
                 {
                     SavePosition(position);
                 }
-            }         
-
+            }
         }
+
+        private void SeedCEOandDD()
+        {
+            //Check if Employee table is empty and seed it with positions
+            var isEmployeeTableEmpty = !database.Table<Employee>().Any();
+
+            if (isEmployeeTableEmpty)
+            {
+                List<Employee> employees = new List<Employee>()
+                {
+                    new Employee
+                    {
+                        Name = "John Atanasov",
+                        Salary = "10000",
+                        City = "Madrid",
+                        Email = "jo@gt.bg",
+                        Phone = "23432432",
+                        PositionId = 8
+                    },
+
+                    new Employee
+                    {
+                        Name = "Alan Dill",
+                        Salary = "5000",
+                        City = "Madrid",
+                        Email = "al@gt.bg",
+                        Phone = "44334",
+                        PositionId = 7,
+                        ManId = 1
+                    }
+                };
+
+                foreach (var employee in employees)
+                {
+                    SaveEmployeeWithRelation(employee);
+                }
+            }
+        }
+
         public static List<string> GetPositionsName()
         {
             var sql = from i in database.Table<Position>() select i.Name;
