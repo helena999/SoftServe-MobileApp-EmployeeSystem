@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using HR_Module_Xamarin.Data;
+using HR_Module_Xamarin.Controls;
 
 namespace HR_Module_Xamarin.View
 {

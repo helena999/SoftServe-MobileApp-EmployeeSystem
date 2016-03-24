@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 using System.Collections;
 
-namespace HR_Module_Xamarin.View
+namespace HR_Module_Xamarin.Controls
 {
     public class BindablePicker : Picker
     {
