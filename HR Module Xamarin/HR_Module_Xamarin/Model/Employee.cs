@@ -41,5 +41,10 @@ namespace HR_Module_Xamarin.View
 
         [OneToOne]
         public Employee Manager { get; set; }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }
