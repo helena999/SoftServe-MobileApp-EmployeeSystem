@@ -50,26 +50,7 @@ namespace HR_Module_Xamarin
 
             string employeesString = "";
 
-            /*if (item.Employees.Count != 0)
-            {
-                StringBuilder result = new StringBuilder();
-
-                int i;
-                for (i = 0; i < item.Employees.Count - 1; i++)
-                {
-                    result.Append(item.Employees[i].Name + ", ");
-                }
-
-                result.Append(item.Employees[i].Name);
-
-                employeesString = result.ToString();
-            }
-            else
-            {
-                employeesString = "No employees";
-            }*/
-
-            employeesString = item.Employees.Count == 0 ? "No project" : String.Join(", ", item.Employees);
+            employeesString = item.Employees.Count == 0 ? "No employees" : String.Join(", ", item.Employees);
 
             Label employeesLabel = new Label
             {
