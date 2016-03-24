@@ -48,9 +48,9 @@ namespace HR_Module_Xamarin
                 FontSize = 30
             };
 
-            string employeesString;
+            string employeesString = "";
 
-            if (item.Employees.Count != 0)
+            /*if (item.Employees.Count != 0)
             {
                 StringBuilder result = new StringBuilder();
 
@@ -67,7 +67,9 @@ namespace HR_Module_Xamarin
             else
             {
                 employeesString = "No employees";
-            }
+            }*/
+
+            employeesString = item.Employees.Count == 0 ? "No project" : String.Join(", ", item.Employees);
 
             Label employeesLabel = new Label
             {
