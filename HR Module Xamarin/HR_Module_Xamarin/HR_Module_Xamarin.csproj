@@ -36,12 +36,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Controls\BindablePicker.cs" />
     <Compile Include="Data\HRModuleDataBase.cs" />
     <Compile Include="Data\ISQLite.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Position.cs" />
     <Compile Include="Model\Project.cs" />
-    <Compile Include="View\BindablePicker.cs" />
     <Compile Include="View\CreatingEmployee.cs" />
     <Compile Include="View\EditEmployeePage.cs" />
     <Compile Include="View\EmployeeDetailsPage.cs" />
