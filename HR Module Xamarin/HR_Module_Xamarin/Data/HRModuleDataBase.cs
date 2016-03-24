@@ -333,18 +333,11 @@ namespace HR_Module_Xamarin.Data
             return projectManagers;
         }
 
-        public IEnumerable<Project> GetManagerProjectsNames(int managerId)
+        public List<string> GetManagerProjectsNames(int managerId)
         {
-            var managerProjects = from projects in database.Table<Project>() where projects.PM == managerId select projects;
+            var managerProjects = from projects in database.Table<Project>() where projects.PM == managerId select projects.Name;
 
-            return managerProjects;
+            return managerProjects.ToList();
         }
-
-        /*public IEnumerable<Employee> GetProjectEmployees(int projectId)
-        {
-            var projectEmployees = from projects in database.Table<Project>() where projects.Id == projectId select projects;
-
-            return projectEmployees;
-        }*/
     }
 }

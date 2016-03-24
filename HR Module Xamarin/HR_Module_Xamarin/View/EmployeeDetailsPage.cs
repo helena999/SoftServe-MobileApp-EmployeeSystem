@@ -68,28 +68,18 @@ namespace HR_Module_Xamarin
 
             string projects = "";
 
-            if (item.PositionId == 6 && App.Database.GetManagerProjectsNames(item.ID).ToList<Project>().Count != 0)
+            if (item.PositionId == 6)
             {
-                var managerProjects = App.Database.GetManagerProjectsNames(item.ID).ToList<Project>();
+                var managerProjects = App.Database.GetManagerProjectsNames(item.ID);
 
-                StringBuilder result = new StringBuilder();
-
-                int i;
-                for (i = 0; i < managerProjects.Count - 1; i++)
-                {
-                    result.Append(managerProjects[i].Name + ", ");
-                }
-                
-                result.Append(managerProjects[i].Name);
-
-                projects = result.ToString();
+                projects = managerProjects.Count == 0 ? "No project" : String.Join(", ", managerProjects);
             }
             else
             {
                 projects = item.Project != null ? item.Project.Name : "No project";
             }
 
-            Label projectLabel = new Label
+           Label projectLabel = new Label
             {
                 Text = projects,
                 FontSize = 30
