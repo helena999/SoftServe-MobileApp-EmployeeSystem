@@ -155,14 +155,6 @@ namespace HR_Module_Xamarin
             };
 
             this.Content = stackLayout;
-
-            //listView.ItemTapped += async (sender, e) =>
-            //{
-            //    Employee item = (Employee)e.Item;
-            //    await Navigation.PushAsync(new EmployeeDetailsPage(item));
-
-
-            //};
         }
     }
 }
